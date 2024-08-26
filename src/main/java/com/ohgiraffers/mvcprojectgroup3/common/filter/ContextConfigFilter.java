@@ -1,6 +1,6 @@
 package com.ohgiraffers.mvcprojectgroup3.common.filter;
 
-import com.ohgiraffers.mvc.common.config.ConfigLocation;
+import com.ohgiraffers.mvcprojectgroup3.common.config.ConfigLocation;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 
@@ -10,10 +10,6 @@ import java.io.IOException;
 public class ContextConfigFilter implements Filter {
 
     public ContextConfigFilter() {
-    }
-
-    public void destroy() {
-
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -43,10 +39,6 @@ public class ContextConfigFilter implements Filter {
 
         /* 설명. 이렇게 경로를 static 영역에 저장하면 템플릿에서도 사용이 가능하다. */
         chain.doFilter(request, response);
-    }
-
-    public void init(FilterConfig fConfig) throws ServletException {
-
     }
 
 }

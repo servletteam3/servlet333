@@ -1,7 +1,7 @@
 package com.ohgiraffers.mvcprojectgroup3.employee.controller;
 
-import com.ohgiraffers.mvc.employee.model.dto.EmployeeDTO;
-import com.ohgiraffers.mvc.employee.model.service.EmployeeService;
+import com.ohgiraffers.mvcprojectgroup3.employee.model.dto.EmployeeDTO;
+import com.ohgiraffers.mvcprojectgroup3.employee.model.service.EmployeeService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
