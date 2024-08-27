@@ -26,7 +26,10 @@
     </entry>
 
     <entry key="updateEmp">
-
+        UPDATE TBL_EMPLOYEE
+        SET EMAIL = ?,
+            PHONE = REPLACE(REPLACE(?, ' ', ''), '-', '')
+        WHERE EMP_ID = ?
     </entry>
 
     <entry key="deleteEmp">

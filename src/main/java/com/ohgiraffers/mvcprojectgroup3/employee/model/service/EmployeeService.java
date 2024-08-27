@@ -29,7 +29,22 @@ public class EmployeeService {
 
         /* 조회 결과를 반환한다. */
         return selectedEmp;
+
     }
+
+    public int updateEmp(EmployeeDTO employee) {
+        Connection con = getConnection();
+
+        int result = empDAO.updateEmp(con, employee);
+
+        if (result > 0) commit(con);
+        else            rollback(con);
+
+        close(con);
+
+        return result;
+    }
+    
 }
 
 

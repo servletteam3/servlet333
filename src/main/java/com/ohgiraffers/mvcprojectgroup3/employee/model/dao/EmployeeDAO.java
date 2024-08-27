@@ -26,6 +26,7 @@ public class EmployeeDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
     }
 
     public EmployeeDTO selectEmpById(Connection con, String empId) {
@@ -61,5 +62,28 @@ public class EmployeeDAO {
         }
 
         return selectedEmp;
+    }
+
+    public int updateEmp(Connection con, EmployeeDTO employee) {
+        PreparedStatement ps = null;
+        int result = 0;
+
+        String query = prop.getProperty("updateEmp");
+
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, employee.getEmail());
+            ps.setString(2, employee.getPhone());
+            ps.setString(3, employee.getEmpId());
+            result = ps.executeUpdate();
+            System.out.println(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(ps);
+        }
+
+        return result;
+
     }
 }
