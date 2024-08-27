@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/styles.css">
+    <title>Main</title>
 </head>
 <body>
     <%-- 헤더 위치 --%>
