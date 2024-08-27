@@ -1,30 +1,40 @@
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
-    padding: 100px; /* Reduced padding around the entire page */
+    padding: 40px; /* Adjusted padding for the whole page */
     color: #333;
 }
 
-/* Container with reduced width and padding */
-.container {
-    width: 450px;       /* Reduced width to 3/4 of 600px */
-    margin: 0 auto;     /* Centers the container */
-    padding: 37.5px;    /* Reduced padding inside the container to 3/4 of 50px */
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+h1 {
+    color: #3498db; /* Blue color for headers */
+    text-align: center; /* Center align header */
+    margin-bottom: 20px;
 }
 
+.container {
+    width: 450px; /* Adjusted width */
+    margin: 0 auto; /* Center the container */
+    padding: 30px; /* Adjusted padding */
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Header Styles */
 h3 {
     color: #2c3e50;
     border-bottom: 2px solid #3498db;
     padding-bottom: 5px;
 }
 
+/* Paragraph Styles */
 p {
     margin-bottom: 10px;
 }
 
+/* Horizontal Rule */
 hr {
     border: 0;
     height: 1px;
@@ -32,6 +42,7 @@ hr {
     margin: 20px 0;
 }
 
+/* Form Styles */
 form {
     background: #f9f9f9;
     padding: 15px;
@@ -40,6 +51,7 @@ form {
     margin-bottom: 20px;
 }
 
+/* Input and Button Styles */
 input[type="text"], button {
     margin-top: 5px;
     padding: 10px;
@@ -62,4 +74,54 @@ button:hover {
 
 button:active {
     background-color: #1a5276;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #3498db;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+td {
+    color: #333;
+}
+
+/* Link Styles */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Additional Styles for Employee Info Page */
+.info-label {
+    font-weight: bold; /* Make labels bold */
+    color: #2c3e50; /* Darker color for labels */
 }

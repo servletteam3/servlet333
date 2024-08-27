@@ -2,7 +2,8 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/styles.css">
+    <title>List</title>
 </head>
 <body>
 <h1>직원 목록 전체 조회</h1>
