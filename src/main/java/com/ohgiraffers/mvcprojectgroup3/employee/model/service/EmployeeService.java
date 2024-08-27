@@ -51,11 +51,42 @@ public class EmployeeService {
 
         int result = empDAO.updateEmp(con, employee);
 
+        if (result > 0) commit(con);
+        else            rollback(con);
+
         close(con);
 
         return result;
     }
 
+    public List<EmployeeDTO> selectAllemp() {
+
+        Connection con = getConnection();
+
+        List<EmployeeDTO> empList = empDAO.selectAllemp(con);
+
+        close(con);
+
+        return empList;
+
+    }
+
+    public int deleteEmp(String empId) {
+
+        Connection con = getConnection();
+
+        int result = empDAO.deleteEmp(con, empId);
+
+        if (result > 0) {
+            commit(con);
+        } else {
+            rollback(con);
+        }
+
+        close(con);
+
+        return result;
+    }
 
 }
 
