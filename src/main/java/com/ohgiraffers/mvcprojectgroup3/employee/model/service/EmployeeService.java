@@ -10,8 +10,24 @@ import static com.ohgiraffers.mvcprojectgroup3.common.jdbc.JDBCTemplate.*;
 
 public class EmployeeService {
 
+    private final EmployeeDAO empDAO;
 
+    public EmployeeService() {
+        empDAO = new EmployeeDAO();
+    }
 
+    public int updateEmp(EmployeeDTO employee) {
+        Connection con = getConnection();
+
+        int result = empDAO.updateEmp(con, employee);
+
+        if (result > 0) commit(con);
+        else            rollback(con);
+
+        close(con);
+
+        return result;
+    }
 }
 
 

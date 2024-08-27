@@ -18,7 +18,10 @@
     </entry>
 
     <entry key="updateEmp">
-
+        UPDATE TBL_EMPLOYEE
+        SET EMAIL = ?,
+            PHONE = ?
+        WHERE EMP_ID = ?
     </entry>
 
     <entry key="deleteEmp">
