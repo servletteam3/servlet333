@@ -2,38 +2,36 @@ package com.ohgiraffers.mvcprojectgroup3.employee.controller;
 
 import com.ohgiraffers.mvcprojectgroup3.employee.model.dto.EmployeeDTO;
 import com.ohgiraffers.mvcprojectgroup3.employee.model.service.EmployeeService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 
 @WebServlet("/employee/insert")
 public class InsertEmpServlet extends HttpServlet {
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String empName = req.getParameter("empName");
-        String empNo = req.getParameter("empNo");
-        String email = req.getParameter("email");
-        String phone = req.getParameter("phone");
-        String deptCode = req.getParameter("deptCode");
-        String jobCode = req.getParameter("jobCode");
-        String salLevel = req.getParameter("salLevel");
-        int salary = Integer.parseInt(req.getParameter("salary"));
-        double bonus = Double.parseDouble(req.getParameter("bonus"));
-        String manageId = req.getParameter("managerId");
-        java.sql.Date hireDate = java.sql.Date.valueOf(req.getParameter("hireDate"));
+        String empName = request.getParameter("empName");
+        String empNo = request.getParameter("empNo");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String deptCode = request.getParameter("deptCode");
+        String jobCode = request.getParameter("jobCode");
+        String salLevel	= request.getParameter("salLevel");
+        int salary = Integer.parseInt(request.getParameter("salary"));
+        double bonus = Double.parseDouble(request.getParameter("bonus"));
+        String managerId = request.getParameter("managerId");
+        java.sql.Date hireDate = java.sql.Date.valueOf(request.getParameter("hireDate"));
 
         EmployeeService empService = new EmployeeService();
-//        String newEmpId = empService.selectNewEmpId();        // selectNewEmpId 생성 후 주석 풀기
+        String newEmpId = empService.selectNewEmpId();
 
-        EmployeeDTO emp  = new EmployeeDTO();
-//        if(newEmpId !=null) emp.setEmpId(newEmpId);           // selectNewEmpId 생성 후 주석 풀기
+        EmployeeDTO emp = new EmployeeDTO();
+        if(newEmpId != null) emp.setEmpId(newEmpId);
         emp.setEmpName(empName);
         emp.setEmpNo(empNo);
         emp.setEmail(email);
@@ -43,7 +41,7 @@ public class InsertEmpServlet extends HttpServlet {
         emp.setSalLevel(salLevel);
         emp.setSalary(salary);
         emp.setBonus(bonus);
-        emp.setManagerId(manageId);
+        emp.setManagerId(managerId);
         emp.setHireDate(hireDate);
 
         System.out.println("insert request emp : " + emp);
@@ -52,14 +50,17 @@ public class InsertEmpServlet extends HttpServlet {
 
         String path = "";
         if(result > 0) {
-            path = ""
+            path = "/WEB-INF/views/common/successPage.jsp";
+//			request.setAttribute("message", "신규 직원 등록에 성공하셨습니다.");
+//			response.sendRedirect(request.getContextPath() + "/WEB-INF/views/common/successPage.jsp");
+
+            request.setAttribute("successCode", "insertEmp");
+        } else {
+            path = "/WEB-INF/views/common/errorPage.jsp";
+            request.setAttribute("message", "신규 직원 등록에 실패하셨습니다.");
         }
 
-
-
-
-
-
-
+        request.getRequestDispatcher(path).forward(request, response);
     }
+
 }

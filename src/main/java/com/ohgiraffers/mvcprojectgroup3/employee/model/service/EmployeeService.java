@@ -16,11 +16,19 @@ public class EmployeeService {
         empDAO = new EmployeeDAO();
     }
 
-    public int updateEmp(EmployeeDTO employee) {
+    /* 신규 사원 조회 */
+    public String selectNewEmpId() {
+
         Connection con = getConnection();
 
-        int result = empDAO.updateEmp(con, employee);
-/* 사원 등록 */
+        String newEmpId = empDAO.selectNewEmpId(con);
+
+        close(con);
+
+        return newEmpId;
+    }
+
+    /* 신규 사원 등록 */
     public int insertEmp(EmployeeDTO emp) {
 
         Connection con = getConnection();
@@ -33,12 +41,15 @@ public class EmployeeService {
             rollback(con);
         }
 
-        if (result > 0) commit(con);
-        else            rollback(con);
         close(con);
 
         return result;
     }
+
+    public int updateEmp(EmployeeDTO employee) {
+        Connection con = getConnection();
+
+        int result = empDAO.updateEmp(con, employee);
 
         close(con);
 

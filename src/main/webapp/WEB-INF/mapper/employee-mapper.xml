@@ -17,6 +17,27 @@
 
     </entry>
 
+    <entry key="selectNewEmpId">
+        SELECT LPAD(COUNT(EMP_ID) + 1, 3, '0') AS EMP_ID
+        FROM TBL_EMPLOYEE;
+    </entry>
+
+    <entry key="insertEmp">
+        INSERT
+        INTO TBL_EMPLOYEE
+        (
+        EMP_ID, EMP_NAME, EMP_NO, EMAIL, PHONE
+        , DEPT_CODE, JOB_CODE, SAL_LEVEL, SALARY, BONUS
+        , MANAGER_ID, HIRE_DATE, ENT_DATE, ENT_YN
+        )
+        VALUES
+        (
+        ?, ?, ?, ?, ?
+        , ?, ?, ?, ?, ?
+        , ?, ?, NULL, DEFAULT
+        )
+    </entry>
+
     <entry key="updateEmp">
         UPDATE TBL_EMPLOYEE
         SET EMAIL = ?,
