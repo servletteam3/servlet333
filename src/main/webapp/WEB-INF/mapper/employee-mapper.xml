@@ -25,16 +25,12 @@
         WHERE ENT_YN = 'N'
     </entry>
 
-    <entry key="selectNewEmpId">
-
-    </entry>
-
     <entry key="insertEmp">
 
     </entry>
 
     <entry key="selectNewEmpId">
-        SELECT LPAD(COUNT(EMP_ID) + 1, 3, '0') AS EMP_ID
+        SELECT LPAD(MAX(EMP_ID) + 1, 3, '0') AS EMP_ID
         FROM TBL_EMPLOYEE;
     </entry>
 
